@@ -1,0 +1,19 @@
+<%- include("./shared/header.ejs") %>
+<h1>connexion</h1>
+<% if (locals.data){%>
+  <p><%= data.id %></p>
+  <p> <%= data.username %> </p>
+<%}%>
+<form action="/login" method="post">
+  <div class="forms">
+    <label for="username"> nom d'utilisateur :</label>
+    <input type="text" id="username" name = "username">
+  </div>
+  <div class="forms">
+    <label for="key"> Clé d'accès :</label>
+    <input type="password" id="key" name = "key">
+  </div>
+  <button>connexion</button>
+
+</form>
+<%- include("shared/footer.ejs") %>

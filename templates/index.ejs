@@ -1,0 +1,58 @@
+<%- include("./shared/header.ejs") %>
+<form id="stationFrom">
+<% if (!(locals.station === undefined)) { %>
+  <div class="forms">
+    <label for="depart"> depart :</label>
+    <input list="dataSet" id="depart" placeholder="Commencez à écrire..." value="">
+  </div>
+  <div class="forms">
+    <label for="arriver"> arriver :</label>
+    <input list="dataSet" id="arriver" placeholder="Commencez à écrire..." value="">
+  </div>
+  <!-- <div class="forms">  
+    <label for="eviter"> eviter :</label>
+    <input list="dataSet" id="eviter" placeholder="Commencez à écrire..." value="">
+  </div> -->
+  <div class="forms">
+    <label for="relais"> relais :</label>
+    <input list="dataSet" id="relais" placeholder="Commencez à écrire..." value="">
+  </div>
+
+  <button type="submit" id="submit" disabled>Rechercher</button>
+
+  <datalist id="dataSet">
+    <% for (const gare of station) { %>
+      <option id="<%= gare.stop_id %>"> <%= gare.stop_name %> </option>
+    <% } %>
+  </datalist>
+
+  
+<% } %>
+</form>
+
+<div id="listeChemain" class="hide">
+    <div id="conteneur">
+      <ul></ul>
+    </div>
+    <input type="button" value="suivant" id="next">
+
+</div>
+<template id="oneItems">
+  <li class="listeItems">
+    <div class="spansTem">
+        <span class="bool1"></span>
+        <span class="bool2"></span>
+    </div>
+    <p></p>
+  </li>
+</template>
+<style>
+
+</style>
+
+<!-- <script defer>
+  
+
+</script> -->
+<!-- //A858 -->
+<%- include("shared/footer.ejs") %>
